@@ -1,8 +1,6 @@
 %define name	eet
-%define version 0.9.10.025
-%define release %mkrel 0.%{cvsrel}.2
-
-%define cvsrel 20060323
+%define version 0.9.10.037
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %major
@@ -14,7 +12,7 @@ Version: 	%version
 Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
-Source: 	%name-%{cvsrel}.tar.bz2
+Source: 	%name-%version.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 BuildRequires: 	jpeg-devel zlib-devel
@@ -47,10 +45,9 @@ Provides: lib%name-devel = %version-%release
 Headers and static libraries from eet
 
 %prep
-%setup -q -n %name
+%setup -q 
 
 %build
-./autogen.sh
 %configure2_5x
 %make
 
@@ -65,14 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
 
-%files
-%defattr(-,root,root)
-%doc AUTHORS COPYING README
-%_bindir/eet
-%_bindir/eet_bench
-
 %files -n %libname
 %defattr(-,root,root) 
+%doc AUTHORS COPYING README
 %_libdir/libeet.so.*
 
 %files -n %libnamedev

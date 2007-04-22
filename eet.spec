@@ -30,6 +30,8 @@ This package is part of the E17 desktop shell.
 %package -n %libname
 Summary: Eet library
 Group: System/Libraries
+Obsoletes: eet < 0.9.10.037
+Provides: eet = %{version}-%{release}
 
 %description -n %libname
 This package contains the dynamic libraries from %name.

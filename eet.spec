@@ -1,6 +1,6 @@
 %define name	eet
-%define version 0.9.10.038
-%define release %mkrel 3
+%define version 0.9.10.041
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %major

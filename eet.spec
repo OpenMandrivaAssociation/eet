@@ -56,7 +56,7 @@ Headers and static libraries from eet
 %install
 rm -fr %buildroot
 %makeinstall
-mkdir %buildroot/%_bindir/
+#mkdir %buildroot/%_bindir/
 touch %buildroot/%_bindir/%name-config
 #%multiarch_binaries %buildroot/%_bindir/%name-config
 #rm %buildroot/%_bindir/%name-config
@@ -67,13 +67,17 @@ rm -rf $RPM_BUILD_ROOT
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
 
+%files
+%defattr(-,root,root)
+%doc AUTHORS COPYING README
+%_bindir/%name
+%_bindir/%name-config
+%multiarch %{multiarch_bindir}/eet-config
+
 %files -n %libname
 %defattr(-,root,root) 
 %doc AUTHORS COPYING README
 %_libdir/libeet.so.*
-%_bindir/%name-config
-%_bindir/eet-config
-%multiarch %{multiarch_bindir}/eet-config
 
 %files -n %libnamedev
 %defattr(-,root,root)
@@ -82,5 +86,3 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/*.so
 %_libdir/pkgconfig/*.pc
 %_includedir/Eet*
-
-

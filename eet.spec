@@ -13,7 +13,6 @@ Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	%name-%version.tar.bz2
-BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.get-e.org/
 BuildRequires: 	jpeg-devel zlib-devel
 #BuildRequires:	multiarch-utils

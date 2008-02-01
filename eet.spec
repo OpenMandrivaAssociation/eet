@@ -1,6 +1,6 @@
 %define name	eet
 %define version 0.9.10.042
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 	0
 %define libname %mklibname %{name} %major
@@ -14,9 +14,8 @@ License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 Source: 	%name-%version.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
-URL: 		http://www.get-e.org/
+URL: 		http://www.enlightenment.org/
 BuildRequires: 	jpeg-devel zlib-devel
-#BuildRequires:	multiarch-utils
 
 %description
 Eet is a tiny library designed to write an arbitary set of chunks of data
@@ -30,8 +29,6 @@ This package is part of the E17 desktop shell.
 %package -n %libname
 Summary: Eet library
 Group: System/Libraries
-Obsoletes: eet < 0.9.10.037
-Provides: eet = %{version}-%{release}
 
 %description -n %libname
 This package contains the dynamic libraries from %name.

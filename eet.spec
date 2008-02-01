@@ -1,10 +1,10 @@
 %define name	eet
-%define version 0.9.10.041
-%define release %mkrel 2
+%define version 0.9.10.042
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define libnamedev %mklibname %{name} -d
 
 Summary: 	Eet library
 Name: 		%name
@@ -56,10 +56,6 @@ Headers and static libraries from eet
 %install
 rm -fr %buildroot
 %makeinstall
-#mkdir %buildroot/%_bindir/
-touch %buildroot/%_bindir/%name-config
-#%multiarch_binaries %buildroot/%_bindir/%name-config
-#rm %buildroot/%_bindir/%name-config
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,12 +67,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS COPYING README
 %_bindir/%name
-%_bindir/%name-config
-%multiarch %{multiarch_bindir}/eet-config
 
 %files -n %libname
 %defattr(-,root,root) 
-%doc AUTHORS COPYING README
 %_libdir/libeet.so.*
 
 %files -n %libnamedev

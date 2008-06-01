@@ -2,7 +2,7 @@
 %define version 1.0.0
 %define release %mkrel 1
 
-%define major 	0
+%define major 	1
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
 
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root) 
-%_libdir/libeet.so.*
+%_libdir/libeet.so.%{major}*
 
 %files -n %libnamedev
 %defattr(-,root,root)

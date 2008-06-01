@@ -1,5 +1,5 @@
 %define name	eet
-%define version 1.0.0
+%define version 1.0.1
 %define release %mkrel 1
 
 %define major 	1
@@ -12,7 +12,7 @@ Version: 	%version
 Release: 	%release
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
-Source: 	http://download.enlightenment.org/releases/%name-%version.tar.bz2
+Source:		http://download.enlightenment.org/snapshots/LATEST/%name-%version.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
 BuildRequires: 	jpeg-devel zlib-devel

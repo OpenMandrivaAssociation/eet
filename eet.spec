@@ -1,6 +1,6 @@
 %define name	eet
 %define version 1.1.0
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define major 	1
 %define libname %mklibname %{name} %major
@@ -15,7 +15,7 @@ Group: 		Graphical desktop/Enlightenment
 Source:		http://download.enlightenment.org/snapshots/LATEST/%name-%version.tar.bz2
 BuildRoot: 	%_tmppath/%name-buildroot
 URL: 		http://www.enlightenment.org/
-BuildRequires: 	jpeg-devel zlib-devel
+BuildRequires: 	jpeg-devel zlib-devel eina-devel
 
 %description
 Eet is a tiny library designed to write an arbitary set of chunks of data

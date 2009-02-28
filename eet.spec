@@ -2,15 +2,15 @@
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
 
-Name: 		eet
-Version: 	1.1.0
-Release: 	%mkrel 4
-License: 	BSD
-Summary: 	Eet library
-Group: 		Graphical desktop/Enlightenment
-Source:		http://download.enlightenment.org/snapshots/LATEST/%name-%version.tar.bz2
-BuildRoot: 	%_tmppath/%name-buildroot
-URL: 		http://www.enlightenment.org/
+Name: eet
+Version: 1.1.0
+Release: %mkrel 5
+License: BSD
+Summary: Eet library
+Group: Graphical desktop/Enlightenment
+Source:	http://download.enlightenment.org/snapshots/LATEST/%name-%version.tar.bz2
+BuildRoot: %_tmppath/%name-buildroot
+URL: http://www.enlightenment.org/
 BuildRequires: jpeg-devel 
 BuildRequires: zlib-devel 
 BuildRequires: eina-devel

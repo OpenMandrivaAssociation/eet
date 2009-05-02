@@ -3,8 +3,8 @@
 %define libnamedev %mklibname %{name} -d
 
 Name: eet
-Version: 1.1.0
-Release: %mkrel 5
+Version: 1.2.0
+Release: %mkrel 1
 License: BSD
 Summary: Eet library
 Group: Graphical desktop/Enlightenment
@@ -14,6 +14,9 @@ URL: http://www.enlightenment.org/
 BuildRequires: jpeg-devel 
 BuildRequires: zlib-devel 
 BuildRequires: eina-devel
+BuildRequires: gnutls-devel
+BuildRequires: openssl-devel
+BuildRequires: doxygen
 
 %description
 Eet is a tiny library designed to write an arbitary set of chunks of data
@@ -50,10 +53,10 @@ Headers and static libraries from eet
 
 %install
 rm -fr %buildroot
-%makeinstall
+%makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %buildroot
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig

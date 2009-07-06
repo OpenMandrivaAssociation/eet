@@ -3,7 +3,7 @@
 %define libnamedev %mklibname %{name} -d
 
 Name: eet
-Version: 1.2.0
+Version: 1.2.1
 Release: %mkrel 1
 License: BSD
 Summary: Eet library

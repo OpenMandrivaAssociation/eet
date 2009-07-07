@@ -4,7 +4,7 @@
 
 Name: eet
 Version: 1.2.1
-Release: %mkrel 1
+Release: %mkrel 2
 License: BSD
 Summary: Eet library
 Group: Graphical desktop/Enlightenment

@@ -3,8 +3,8 @@
 %define libnamedev %mklibname %{name} -d
 
 Name: eet
-Version: 1.2.1
-Release: %mkrel 3
+Version: 1.2.2
+Release: %mkrel 1
 License: BSD
 Summary: Eet library
 Group: Graphical desktop/Enlightenment

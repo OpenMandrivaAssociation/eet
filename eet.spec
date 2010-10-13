@@ -3,17 +3,17 @@
 %define libnamedev %mklibname %{name} -d
 
 Name: eet
-Version: 1.3.2
-Release: %mkrel 1
+Version: 1.4.0
+Release: %mkrel -c beta 1
 License: BSD
 Summary: Eet library
 Group: Graphical desktop/Enlightenment
-Source:	http://download.enlightenment.org/snapshots/LATEST/%name-%version.tar.bz2
+Source:	http://download.enlightenment.org/snapshots/LATEST/%name-%version.beta.tar.bz2
 BuildRoot: %_tmppath/%name-buildroot
 URL: http://www.enlightenment.org/
 BuildRequires: jpeg-devel 
 BuildRequires: zlib-devel 
-BuildRequires: eina-devel >= 0.9.9.063
+BuildRequires: eina-devel >= 1.0.0
 BuildRequires: gnutls-devel
 BuildRequires: openssl-devel
 BuildRequires: doxygen
@@ -45,7 +45,7 @@ Provides: lib%name-devel = %version-%release
 Headers and static libraries from eet
 
 %prep
-%setup -q 
+%setup -qn %name-%version.beta
 
 %build
 %configure2_5x

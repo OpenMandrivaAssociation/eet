@@ -80,4 +80,4 @@ rm -rf %buildroot
 %_libdir/*.la
 %_libdir/*.so
 %_libdir/pkgconfig/*.pc
-%_includedir/Eet*
+%_includedir/*

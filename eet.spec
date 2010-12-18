@@ -4,11 +4,11 @@
 
 Name: eet
 Version: 1.4.0
-Release: %mkrel -c beta2 1
+Release: %mkrel -c beta3 1
 License: BSD
 Summary: Eet library
 Group: Graphical desktop/Enlightenment
-Source:	http://download.enlightenment.org/snapshots/LATEST/%name-%version.beta2.tar.bz2
+Source:	http://download.enlightenment.org/snapshots/LATEST/%name-%version.beta3.tar.bz2
 BuildRoot: %_tmppath/%name-buildroot
 URL: http://www.enlightenment.org/
 BuildRequires: jpeg-devel 
@@ -45,7 +45,7 @@ Provides: lib%name-devel = %version-%release
 Headers and static libraries from eet
 
 %prep
-%setup -qn %name-%version.beta2
+%setup -qn %name-%version.beta3
 
 %build
 %configure2_5x

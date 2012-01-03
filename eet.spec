@@ -100,5 +100,8 @@ rm -fr %{buildroot}
 %files -n %{develname}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/examples
+%{_datadir}/%{name}/examples/*
 %{_includedir}/eet*
 

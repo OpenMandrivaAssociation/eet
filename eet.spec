@@ -1,22 +1,47 @@
-%define major 	1
-%define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} -d
+#Tarball of svn snapshot created as follows...
+#Cut and paste in a shell after removing initial #
 
-Name: eet
-Version: 1.4.1
-Release: %mkrel 1
-License: BSD
-Summary: Eet library
-Group: Graphical desktop/Enlightenment
-Source:	http://download.enlightenment.org/releases/%name-%version.tar.bz2
-BuildRoot: %_tmppath/%name-buildroot
-URL: http://www.enlightenment.org/
-BuildRequires: jpeg-devel 
-BuildRequires: zlib-devel 
-BuildRequires: eina-devel >= 1.0.0
-BuildRequires: gnutls-devel
-BuildRequires: openssl-devel
-BuildRequires: doxygen
+#svn co http://svn.enlightenment.org/svn/e/trunk/eet eet; \
+#cd eet; \
+#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
+#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
+#cd ..; \
+#tar -Jcf eet-$PKG_VERSION.tar.xz eet/ --exclude .svn --exclude .*ignore
+
+%define snapshot 1
+%if %{snapshot}
+%define	svndate	20120103
+%define	svnrev	66634
+%endif
+
+%define	major	1
+%define	libname %mklibname %{name} %{major}
+%define	develname %mklibname %{name} -d
+
+Summary:	Eet library
+Name:		eet
+%if %{snapshot}
+Version:	1.5.99.%{svnrev}
+Release:	0.%{svndate}.1
+%else
+Version:	1.5.0
+Release:	1
+%endif
+License:	BSD
+Group:		Graphical desktop/Enlightenment
+%if %{snapshot}
+Source0:	%{name}-%{version}.tar.xz
+%else
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.xz
+%endif
+URL:		http://www.enlightenment.org/
+BuildRequires:	jpeg-devel
+BuildRequires:	pkgconfig(eina) >= 1.0.0
+BuildRequires:	pkgconfig(gnutls) >= 1.7.6
+BuildRequires:	pkgconfig(zlib)
 
 %description
 Eet is a tiny library designed to write an arbitary set of chunks of data
@@ -27,57 +52,53 @@ simpler to impliment this once here.
 
 This package is part of the E17 desktop shell.
 
-%package -n %libname
-Summary: Eet library
-Group: System/Libraries
+%package -n %{libname}
+Summary:	Eet library
+Group:		System/Libraries
 
-%description -n %libname
-This package contains the dynamic libraries from %name.
+%description -n %{libname}
+This package contains the dynamic libraries from %{name}.
 
-%package -n %libnamedev
-Summary: Eet headers, static libraries, documentation and test programs
-Group: Development/Other
-Requires: %{libname} = %{version}
-Provides: %name-devel = %version-%release
-Provides: lib%name-devel = %version-%release
+%package -n %{develname}
+Summary:	Eet headers, libraries, documentation and test programs
+Group:		Development/Other
+Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %libnamedev
-Headers and static libraries from eet
+%description -n %{develname}
+Headers and libraries from eet
 
 %prep
-%setup -qn %name-%version
+%if %{snapshot}
+%setup -qn %{name}
+%else
+%setup -q
+%endif
 
 %build
-%configure2_5x
+
+%if %{snapshot}
+NOCONFIGURE=yes ./autogen.sh
+%endif
+
+%configure2_5x \
+	--disable-static
+
 %make
 
 %install
-rm -fr %buildroot
+rm -fr %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS COPYING README
-%_bindir/%name
+%{_bindir}/%{name}
 
-%files -n %libname
-%defattr(-,root,root) 
-%_libdir/libeet.so.%{major}*
+%files -n %{libname}
+%{_libdir}/libeet.so.%{major}*
 
-%files -n %libnamedev
-%defattr(-,root,root)
-%_libdir/*.a
-%_libdir/*.la
-%_libdir/*.so
-%_libdir/pkgconfig/*.pc
-%_includedir/*
+%files -n %{develname}
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
+%{_includedir}/eet*
+

@@ -11,7 +11,7 @@
 #cd ..; \
 #tar -Jcf eet-$PKG_VERSION.tar.xz eet/ --exclude .svn --exclude .*ignore
 
-%define snapshot 1
+%define snapshot 0
 %if %{snapshot}
 %define	svndate	20120103
 %define	svnrev	66634
@@ -27,7 +27,7 @@ Name:		eet
 Version:	1.5.99.%{svnrev}
 Release:	0.%{svndate}.1
 %else
-Version:	1.5.0
+Version:	1.6.1
 Release:	1
 %endif
 License:	BSD
@@ -35,7 +35,7 @@ Group:		Graphical desktop/Enlightenment
 %if %{snapshot}
 Source0:	%{name}-%{version}.tar.xz
 %else
-Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.xz
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 %endif
 URL:		http://www.enlightenment.org/
 BuildRequires:	jpeg-devel

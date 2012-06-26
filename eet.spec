@@ -42,6 +42,7 @@ BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(eina) >= 1.0.0
 BuildRequires:	pkgconfig(gnutls) >= 1.7.6
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	libgcrypt-devel
 
 %description
 Eet is a tiny library designed to write an arbitary set of chunks of data

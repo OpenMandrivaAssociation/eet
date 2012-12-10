@@ -27,17 +27,17 @@ Name:		eet
 Version:	1.5.99.%{svnrev}
 Release:	0.%{svndate}.1
 %else
-Version:	1.6.1
+Version:	1.7.3
 Release:	1
 %endif
 License:	BSD
 Group:		Graphical desktop/Enlightenment
+URL:		http://www.enlightenment.org/
 %if %{snapshot}
 Source0:	%{name}-%{version}.tar.xz
 %else
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.gz
 %endif
-URL:		http://www.enlightenment.org/
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(eina) >= 1.0.0
 BuildRequires:	pkgconfig(gnutls) >= 1.7.6
@@ -88,7 +88,6 @@ NOCONFIGURE=yes ./autogen.sh
 %make
 
 %install
-rm -fr %{buildroot}
 %makeinstall_std
 
 %files
@@ -105,4 +104,3 @@ rm -fr %{buildroot}
 %dir %{_datadir}/%{name}/examples
 %{_datadir}/%{name}/examples/*
 %{_includedir}/eet*
-

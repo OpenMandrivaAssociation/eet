@@ -4,7 +4,7 @@
 
 Summary:	Eet library
 Name:		eet
-Version:	1.7.5
+Version:	1.7.6
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -13,6 +13,7 @@ Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(eina) >= 1.0.0
 BuildRequires:	pkgconfig(gnutls) >= 1.7.6
+# note: pkgconfig(libgcrypt) is for 2013.0+, for Rosa 2012.1 should be libgcrypt-devel
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(zlib)
 

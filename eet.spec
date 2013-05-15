@@ -4,7 +4,7 @@
 
 Summary:	Eet library
 Name:		eet
-Version:	1.7.6
+Version:	1.7.7
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment

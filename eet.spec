@@ -4,11 +4,11 @@
 
 Summary:	Eet library
 Name:		eet
-Version:	1.7.7
+Version:	1.7.8
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
-URL:		http://www.enlightenment.org/
+Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 BuildRequires:	jpeg-devel
 BuildRequires:	pkgconfig(eina) >= 1.0.0
@@ -36,8 +36,8 @@ This package contains the dynamic libraries from %{name}.
 %package -n %{devname}
 Summary:	Eet headers, libraries, documentation and test programs
 Group:		Development/Other
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 Headers and libraries from eet
@@ -62,7 +62,7 @@ Headers and libraries from eet
 %{_libdir}/libeet.so.%{major}*
 
 %files -n %{devname}
-%{_libdir}/*.so
+%{_libdir}/libeet.so
 %{_libdir}/pkgconfig/*.pc
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/examples
